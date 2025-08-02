@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucrecia Maame Mante-Bonsra - Portfolio</title> </head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 2.5em;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0.5rem 0 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            padding: 5px 10px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #2c3e50;
+            background-color: #1abc9c;
+        }
+
+        /* Sections General Styling */
+        section {
+            padding: 60px 20px;
+            margin: 0 auto;
+            max-width: 960px;
+            background-color: #fff;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 2.2em;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background-color: #1abc9c;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -15px;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        #about p {
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #555;
+        }
+
+        /* Programming Languages Section */
+        #skills ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        #skills ul li {
+            background-color: #1abc9c;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.05em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        #skills ul li:hover {
+            transform: translateY(-5px);
+            background-color: #16a085;
+        }
+
+        /* Educational Background Section */
+        .education-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .education-item:hover {
+            transform: translateX(5px);
+        }
+
+        .education-item .icon {
+            font-size: 2.5em;
+            color: #3498db;
+            margin-right: 20px;
+        }
+
+        .education-item .details h3 {
+            margin: 0 0 5px;
+            font-family: 'Montserrat', sans-serif;
+            color: #2c3e50;
+        }
+
+        .education-item .details p {
+            margin: 0;
+            color: #666;
+        }
+
+        .cv-download {
+            display: block;
+            width: fit-content;
+            margin: 40px auto 0;
+            padding: 15px 30px;
+            background-color: #e74c3c;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.1em;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cv-download:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+        }
+
+        /* Interests Section */
+        #interests ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        #interests ul li {
+            background-color: #f0f8ff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 4px solid #f39c12;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        #interests ul li:hover {
+            background-color: #fff8f0;
+            transform: translateY(-5px);
+        }
+
+        #interests ul li h3 {
+            margin-top: 0;
+            color: #f39c12;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        #interests ul li p {
+            color: #555;
+        }
+
+        /* Projects Section - Updated for No Images */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 20px; /* Added padding here */
+            display: flex; /* Flexbox for content alignment */
+            flex-direction: column;
+            justify-content: space-between; /* Pushes button to bottom */
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5em;
+            margin-bottom: 10px; /* Spacing below title */
+        }
+
+        .project-card p {
+            color: #666;
+            margin-bottom: 20px; /* Spacing before button */
+            flex-grow: 1; /* Allows paragraph to take available space */
+        }
+
+        .project-card a {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            align-self: flex-start; /* Aligns button to start within flex container */
+        }
+
+        .project-card a:hover {
+            background-color: #2980b9;
+        }
+
+        /* Contact Form */
+        #contact form {
+            display: grid;
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #contact label {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        #contact input[type="text"],
+        #contact input[type="email"],
+        #contact textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1em;
+            box-sizing: border-box; /* Ensures padding doesn't increase width */
+            transition: border-color 0.3s ease;
+        }
+
+        #contact input[type="text"]:focus,
+        #contact input[type="email"]:focus,
+        #contact textarea:focus {
+            border-color: #1abc9c;
+            outline: none;
+            box-shadow: 0 0 5px rgba(26,188,156,0.5);
+        }
+
+        #contact textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        #contact button {
+            background-color: #1abc9c;
+            color: #fff;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1em;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            width: fit-content;
+            justify-self: center;
+        }
+
+        #contact button:hover {
+            background-color: #16a085;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 50px;
+            font-size: 0.9em;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            section {
+                padding: 40px 15px;
+            }
+
+            section h2 {
+                font-size: 1.8em;
+                margin-bottom: 30px;
+            }
+
+            .education-item {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: center;
+            }
+
+            .education-item .icon {
+                margin-bottom: 10px;
+                margin-right: 0;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.7em;
+            }
+
+            nav ul li a {
+                padding: 8px 15px;
+            }
+
+            section {
+                padding: 30px 10px;
+            }
+
+            section h2 {
+                font-size: 1.6em;
+            }
+
+            #skills ul li {
+                padding: 8px 15px;
+                font-size: 0.95em;
+            }
+
+            .cv-download {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+
+            .project-card h3 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lucrecia Maame Mante-Bonsra</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#interests">Interests</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>📝 About Me</h2>
+            <p>Hi! I’m <strong>Lucrecia Maame Mante-Bonsra</strong>, a dynamic professional with a background in trade, operations, and project management in various sectors. I have practical experience in market analysis, stakeholder management, and project facilitation. I am also passionate about sustainability, climate and youth empowerment. I am a newbie in tech and I aspire to be an AI engineer.</p>
+        </section>
+
+        <section id="skills">
+            <h2>💻 Programming Languages & Technologies</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+            </ul>
+        </section>
+
+        <section id="education">
+            <h2>🎓 Educational Background</h2>
+            <div class="education-item">
+                <div class="icon">📚</div>
+                <div class="details">
+                    <h3>Bachelor of Arts in French and Spanish</h3>
+                    <p>University of Ghana </p>
+                </div>
+                </div>
+                <div class="education-item">
+                <div class="icon">📚</div>
+                <div class="details">
+                    <h3>Diploma in French</h3>
+                    <p>Université de Pau et des Pays de l'Adour </p>
+                </div>
+            </div>
+            <div class="education-item">
+                <div class="icon">📄</div>
+                <div class="details">
+                    <h3>Google AI essentials</h3>
+                    <p>Coursera</p>
+                </div>
+            </div>
+            <a href="https://drive.google.com/file/d/1GZXghmrjobv1e9c_Qj_5clHRThlPWMFk/view?usp=drivesdk" target="_blank" class="cv-download">Download My CV</a>
+        </section>
+
+        <section id="interests">
+            <h2>💡 Interests</h2>
+            <ul>
+                <li>
+                    <h3>Climate Change</h3>
+                    <p>Educationg people on climate change.</p>
+                </li>
+                <li>
+                    <h3>Tech Innovations</h3>
+                    <p>Keeping up with emerging trends in technology, especially in areas like AI, and sustainable tech solutions.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2>🛠️ Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Synapse AI</h3>
+                    <p>I used AI to build an intelligent assistant tool. This is being hosted on Firebase</p>
+                    <a href="https://9000-firebase-studio-1749638785323.cluster-6vyo4gb53jczovun3dxslzjahs.cloudworkstations.dev" target="_blank">View Project</a>
+                </div>
+
+                </div>
+        </section>
+
+        <section id="contact">
+            <h2>📬 Contact Me</h2>
+            <p style="text-align: center; font-size: 1.1em; margin-bottom: 30px; color: #555;">Feel free to reach out for collaborations, job opportunities, or just to say hello! I'm always open to new connections.</p>
+            <form action="https://formspree.io/f/mqaldldk" method="POST">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Lucrecia Maame Mante-Bonsra. All rights reserved.</p>
+        <p>Built with ❤️ using HTML and CSS.</p>
+    </footer>
+</body>
+</html>
